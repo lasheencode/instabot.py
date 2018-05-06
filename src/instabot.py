@@ -15,6 +15,7 @@ import sys
 import sqlite3
 import time
 import requests
+import config
 from .sql_updates import check_and_update, check_already_liked, check_already_followed
 from .sql_updates import insert_media, insert_username, insert_unfollow_count
 from .sql_updates import get_usernames_first, get_usernames, get_username_random
@@ -298,7 +299,8 @@ class InstaBot:
             finder = r.text.find(self.user_login)
             if finder != -1:
                 ui = UserInfo()
-                self.user_id = ui.get_user_id_by_login(self.user_login)
+                #self.user_id = ui.get_user_id_by_login(self.user_login)
+                self.user_id = config.credentials['username']
                 self.login_status = True
                 log_string = '%s login success!' % (self.user_login)
                 self.write_log(log_string)
