@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import os
 import time
+import config
 
 from src import InstaBot
 from src.check_status import check_status
@@ -10,8 +11,8 @@ from src.follow_protocol import follow_protocol
 from src.unfollow_protocol import unfollow_protocol
 
 bot = InstaBot(
-    login="username",
-    password="password",
+    login=config.credentials['username'],
+    password=config.credentials['password'],
     like_per_day=1000,
     comments_per_day=0,
     tag_list=['follow4follow', 'f4f', 'cute'],
